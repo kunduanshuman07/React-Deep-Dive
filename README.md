@@ -9,6 +9,7 @@
   - [Destructuring Assignment](#destructuring-assignment)
   - [Object literal enhancement](#object-literal-enhancement)
   - [Spread Operator](#spread-operator)
+  - [Promises](#promises)
 
 
 # Chapter 1 : Javascript
@@ -179,4 +180,46 @@ Let us consider a object having key value pair below:
 After creating two variables firstName and lastName when we create a person variable we are acually creating a key value pair object person.
 
 ## Spread Operator
+
+**Combining Arrays**
+
+```js
+    var first = ['Anshuman', 'Ayushi', 'Ritu'];
+    var second = ['Kundu', 'Srivastava', 'Singh'];
+
+    var joined = [...first, ...second]
+    console.log(joined.join(', ')); // Anshuman, Ayushi, Ritu, Kundu, Srivastava, Singh
+```
+
+**Some and the rest**
+
+```js
+    var name = ['Anshuman', 'Ayushi', 'Ritu'];
+
+    var [first, ...rest] = name;
+    console.log(first); // Anshuman
+    console.log(rest.join(', ')); // Ayushi, Ritu
+```
+
+**Playing around**
+
+```js
+    function directions(...args) {
+        var [start, ...remaining] = args
+        var [finish, ...stops] = remaining.reverse()
+        console.log(`drive through ${args.length} towns`) // drive through 5 towns
+        console.log(`start in ${start}`) // start in Truckee
+        console.log(`the destination is ${finish}`) // the destination is Tahoma
+        console.log(`stopping ${stops.length} times in between`) // stopping 3 times in between
+    }
+    directions(
+        "Truckee",
+        "Tahoe City",
+        "Sunnyside",
+        "Homewood",
+        "Tahoma"
+    )
+```
+
+## Promises
 
